@@ -1,6 +1,11 @@
 // src/components/Contact.js
 
-import { LinkIcon, MailIcon, PhoneIcon } from "@heroicons/react/solid";
+import {
+  LinkIcon,
+  MailIcon,
+  PhoneIcon,
+  UserIcon,
+} from "@heroicons/react/solid";
 import React from "react";
 
 export default function Contact() {
@@ -17,9 +22,12 @@ export default function Contact() {
             marginHeight={0}
             marginWidth={0}
             style={{ filter: "opacity(0.7)" }}
-            src="./main.pdf"
+            src="./RaudelAlejandroGomezMolinaCV.pdf"
           />
-          <a href="./main.pdf" download="RaudelAlejandroGomezMolinaCV.pdf">
+          <a
+            href="./RaudelAlejandroGomezMolinaCV.pdf"
+            download="RaudelAlejandroGomezMolinaCV.pdf"
+          >
             <button className="relative ] rounded shadow-md text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
               Download CV
             </button>
@@ -31,7 +39,10 @@ export default function Contact() {
           </h2>
           <div className="relative mb-2">
             <h3 className="leading-7 text-sm text-gray-400">Nombre</h3>
-            <p className="text-white">Raudel Alejandro Gómez Molina</p>
+            <p className="text-white flex items-center">
+              <UserIcon className="w-4 mr-2" />
+              Raudel Alejandro Gómez Molina
+            </p>
           </div>
           <div className="relative mb-2">
             <h3 className="leading-7 text-sm text-gray-400">Email</h3>
