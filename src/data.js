@@ -51,10 +51,18 @@ export const testimonials = [
 ];
 
 export const skills = [
-  "JavaScript",
+  "C#",
+  "Python",
+  "Rust",
+  "C/C++",
+  "Javascript/Typescript",
+  "Competitive Programming",
+  "Data Structures and Algorithms",
   "React",
-  "Next.js",
-  "Node",
-  "GraphQL",
-  "Material UI",
+  ".NET",
+  "MySQL",
+  "HTML/CSS",
+  "Git/Github",
+  "Linux",
+  "Latex",
 ];
