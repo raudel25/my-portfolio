@@ -1,35 +1,46 @@
 export const projects = [
   {
-    title: "React Reserve",
-    subtitle: "MERN Stack",
+    title: "Travel Agency",
+    subtitle: "React, Antd, .NET, MySQL and Odata",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-1.gif",
-    link: "https://reactbootcamp.com",
+      "A website for the interaction of tourists and travel agencies",
+    image: "./TravelAgency.png",
+    link: "https://github.com/Jara-Devs/Travel-Agency",
   },
   {
-    title: "React Tracks",
-    subtitle: "React and Python",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-2.gif",
-    link: "https://reactbootcamp.com",
+    title: "Todo App",
+    subtitle: "React, Antd, MySQL and .NET",
+    description: "A TODO list application",
+    image: "./TodoApp.png",
+    link: "https://github.com/raudel25/Todo-List-App",
   },
   {
-    title: "DevChat",
-    subtitle: "React and Firebase",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-3.gif",
-    link: "https://reactbootcamp.com",
+    title: "n-omino",
+    subtitle: "Blazor",
+    description: "A somewhat peculiar domino game",
+    image: "./n-omino.png",
+    link: "https://github.com/raudel25/n-omino",
   },
   {
-    title: "Epic Todo App",
-    subtitle: "React Hooks",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium dolore rerum laborum iure enim sint nemo omnis voluptate exercitationem eius?",
-    image: "./project-4.gif",
-    link: "https://reactbootcamp.com",
+    title: "Expression",
+    subtitle: "Blazor and Mathematics",
+    description: "A suite of mathematical expressions",
+    image: "./Expression.png",
+    link: "https://github.com/raudel25/Expression",
+  },
+  {
+    title: "Journal App",
+    subtitle: "React, Redux, MySQL and Supabase",
+    description: "Learning React",
+    image: "./JournalApp.png",
+    link: "https://github.com/raudel25/Journal-App",
+  },
+  {
+    title: "Calendar App",
+    subtitle: "React, Redux, MySQL and .NET",
+    description: "Learning React",
+    image: "./CalendarApp.png",
+    link: "https://github.com/raudel25/Calendar-App",
   },
 ];
 
@@ -70,6 +81,6 @@ export const skills = [
   { text: "Github", icon: "https://skillicons.dev/icons?i=github" },
   { text: "Linux", icon: "https://skillicons.dev/icons?i=linux" },
   { text: "Latex", icon: "https://skillicons.dev/icons?i=latex" },
-  {text:"Redux", icon:"https://skillicons.dev/icons?i=redux"},
-  {text:"Supabase", icon:"https://skillicons.dev/icons?i=supabase"},
+  { text: "Redux", icon: "https://skillicons.dev/icons?i=redux" },
+  { text: "Supabase", icon: "https://skillicons.dev/icons?i=supabase" },
 ];
