@@ -20,11 +20,11 @@ export default function Skills() {
           {skills.map((skill, idx) => (
             <div key={idx} className="p-2 md:w-1/4 w-full">
               <div className="bg-gray-800 rounded flex p-4 h-full items-center">
-                <div className="text-green-400 w-12 h-12 flex-shrink-0 mr-4">
-                  <img src={skill.icon} alt={skill.text} />
+                <div className="text-green-400 w-12 h-12 flex-shrink-0 mr-4 flex items-center">
+                    <img src={skill.icon} alt={skill.text} />
                 </div>
-                <span className="title-font font-medium text-white text-lg">
-                  {skill.text}
+                <span className="title-font font-medium text-white text-lg flex items-center">
+                   {skill.text}
                 </span>
               </div>
             </div>
