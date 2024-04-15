@@ -44,20 +44,39 @@ export const projects = [
   },
 ];
 
-export const testimonials = [
+export const experience = [
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/1.jpg",
-    name: "Jesse Hicks",
-    company: "Zoozle",
+      "During my studies at the university I have worked as an assistant in the subjects of Algebra and Data Structures and Algorithms",
+    image: "uh_logo.jpg",
+    name: "Assistant Professor",
+    company: "Havana University",
+    startDate: "04/2022",
+    endDate: "Till Date",
+    type: "Partial-time",
+    skills: ["Competitive Programming", "Data Structures and Algorithms"],
   },
   {
     quote:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa quod necessitatibus quidem impedit facilis? Distinctio laboriosam veritatis recusandae minus. Voluptatum accusantium hic laudantium soluta ea sapiente cupiditate officia maiores itaque.",
-    image: "https://randomuser.me/api/portraits/men/94.jpg",
-    name: "Ruben Alvarez",
-    company: "Dooble.io",
+      "Work as a mobile developer exploring a new world of software development",
+    image: "business_seed_logo.jpg",
+    name: "Mobile Developer",
+    company: "Business Seed",
+    startDate: "02/2024",
+    endDate: "Till Date",
+    type: "Full-time",
+    skills: ["Dart", "Flutter"],
+  },
+  {
+    quote:
+      "I worked as a full stack developer developing my back-end and front-end skills",
+    image: "./jobs2live_logo.jpg",
+    name: "Full Stack Developer",
+    company: "jobs2live",
+    startDate: "09/2023",
+    endDate: "01/2024",
+    type: "Full-time",
+    skills: ["TypeScript", "React", ".NET", "MySQL"],
   },
 ];
 
