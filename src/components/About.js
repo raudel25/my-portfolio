@@ -34,9 +34,9 @@ export default function About() {
         </div>
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
           <img
-            className="object-cover object-center rounded"
-            alt="hero"
-            src="./coding.svg"
+            className="object-cover object-center rounded-full"
+            alt="raudel25"
+            src="logo.jpg"
           />
         </div>
       </div>
