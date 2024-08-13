@@ -8,6 +8,13 @@ export const projects = [
     link: "https://github.com/Jara-Devs/Travel-Agency",
   },
   {
+    title: "Matcom Social",
+    subtitle: "React, Material UI, go and postgres",
+    description: "A social network",
+    image: "./social-network.png",
+    link: "https://github.com/raudel25/social-network-api",
+  },
+  {
     title: "Todo App",
     subtitle: "React, Antd, MySQL and .NET",
     description: "A TODO list application",
@@ -89,6 +96,7 @@ export const skills = [
   { text: "Javascript", icon: "https://skillicons.dev/icons?i=js" },
   { text: "Typescript", icon: "https://skillicons.dev/icons?i=ts" },
   { text: "Dart", icon: "https://skillicons.dev/icons?i=dart" },
+  { text: "Go", icon: "https://skillicons.dev/icons?i=go" },
   // "Competitive Programming",
   // "Data Structures and Algorithms",
   { text: "React", icon: "https://skillicons.dev/icons?i=react" },
@@ -104,4 +112,5 @@ export const skills = [
   { text: "Latex", icon: "https://skillicons.dev/icons?i=latex" },
   { text: "Redux", icon: "https://skillicons.dev/icons?i=redux" },
   { text: "Supabase", icon: "https://skillicons.dev/icons?i=supabase" },
+  { text: "Docker", icon: "https://skillicons.dev/icons?i=docker" },
 ];
