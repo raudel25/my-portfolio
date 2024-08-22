@@ -17,12 +17,12 @@ export default function Projects() {
         </div>
         <div className="flex flex-wrap -m-4">
           {projects.map((project) => (
-            <a
-              href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4"
-            >
-              <div className="flex relative" style={{ height: 250 }}>
+            <div key={project.image} className="sm:w-1/2 w-100 p-4">
+              <div
+                key={project.image}
+                className="flex relative"
+                style={{ height: 250 }}
+              >
                 <img
                   alt="gallery"
                   className="absolute inset-0 w-full h-full object-cover object-center"
@@ -37,10 +37,60 @@ export default function Projects() {
                       {project.title}
                     </h1>
                     <p className="leading-relaxed">{project.description}</p>
+                    <div className="flex justify-center mt-4">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mr-4 inline-flex text-white bg-green-500 border-0 py-1 px-3 focus:outline-none hover:bg-green-600 rounded text-lg"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                          Live
+                        </a>
+                      )}
+                      {project.sourceUrl && (
+                        <a
+                          href={project.sourceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex text-gray-400 bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 mr-2"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                            />
+                          </svg>
+                          Source
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
