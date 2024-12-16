@@ -1,3 +1,5 @@
+export const cvLink = "https://raudel25.github.io/my-cv/document.pdf";
+
 export const projects = [
   {
     title: "Travel Agency",
@@ -15,6 +17,14 @@ export const projects = [
     image: "./teslo-shop.png",
     sourceUrl: "https://github.com/raudel25/teslo-shop",
     liveUrl: "https://teslo-shop-phi.vercel.app/",
+  },
+  {
+    title: "Cinemapedia",
+    subtitle: "Flutter",
+    description: "A Movie Db client",
+    image: "./Cinemapedia.jpg",
+    sourceUrl: "https://github.com/raudel25/cinemapedia_app",
+    liveUrl: "https://github.com/raudel25/cinemapedia_app/releases",
   },
   {
     title: "Matcom Social",
