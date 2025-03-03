@@ -9,10 +9,10 @@ export default function About() {
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
             Hi, I'm Raudel.
             <br className="hidden lg:inline-block" />
-            Software Developer/Computer Science student.
+            Software Developer/Computer Scientist.
           </h1>
           <p className="mb-8 leading-relaxed">
-            I am a student of computer science at the University of Havana and
+            I am a computer scientist at the University of Havana and
             software developer. I am passionate about mathematics and algorithms
             and I am interested in working in the fields of software engineering
             and artificial intelligence. I also work as a competitive programmer
