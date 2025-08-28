@@ -18,7 +18,7 @@ export default function Education() {
           Studies carried out
         </p>
 
-        <div className="flex flex-wrap m-4">
+        <div className="flex flex-wrap -m-4">
           {education.map((item, idx) => (
             <div key={idx} className="p-4 md:w-1/2 w-full relative">
               <div className="h-full bg-gray-800 bg-opacity-40 pl-8 pr-8 pb-8 pt-12 rounded">
@@ -36,7 +36,21 @@ export default function Education() {
                   </span>
                 </div>
 
-                <p className="leading-relaxed mt-6">{item.quote}</p>
+                <div className="mt-4 flex h-6 justify-center items-center">
+                  <CalendarIcon className="w-4 h-4 block flex-shrink-0" />
+                  <div className="ml-2 text-gray-500 text-xs leading-none flex flex-wrap">
+                    {item.dates.map((d, ind) => (
+                      <span key={ind} className="flex items-center">
+                        {d[0]} - {d[1]}
+                        {ind !== item.dates.length - 1 && (
+                          <span className="h-4 w-px bg-gray-300 mx-2" />
+                        )}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <p className="leading-relaxed mt-4">{item.quote}</p>
 
                 <div className="mt-4">
                   <span className="font-medium text-green-500 text-sm">
@@ -44,19 +58,6 @@ export default function Education() {
                   </span>
                 </div>
               </div>
-
-              <div className="flex absolute top-4 right-4 mt-4 mr-4">
-                <CalendarIcon className="w-4 h-4 inline-block mr-1" />
-                {item.dates.map((d, ind) => (
-                  <span key={ind} className="text-gray-500 text-xs">
-                    {d[0]} - {d[1]}
-                    {ind !== item.dates.length - 1 && (
-                      <span className="h-8 w-px bg-gray-300 mx-2" />
-                    )}
-                  </span>
-                ))}
-              </div>
-
               <div className="flex absolute top-4 left-4 mt-4 ml-4">
                 <LocationMarkerIcon className="w-4 h-4 inline-block mr-1" />
                 <span className="text-gray-500 text-xs">{item.location}</span>

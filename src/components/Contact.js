@@ -51,7 +51,7 @@ export default function Contact() {
           </p>
         </div>
       </div>
-      <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap pb-10">
+      <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap pb-10 gap-10">
         <div className="container px-5 mx-auto ">
           <h3 className="text-white sm:text-4xl text-3xl mb-10 font-medium title-font">
             Send me a message

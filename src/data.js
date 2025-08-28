@@ -84,7 +84,10 @@ export const experience = [
     image: "./jobs2live_logo.jpg",
     name: "Full Stack Developer",
     company: "jobs2live",
-    dates: [["09/2023", "01/2024"]],
+    dates: [
+      ["09/2023", "01/2024"],
+      ["03/2025", "Till Date"],
+    ],
     location: "Madrid, Spain",
     skills: [
       "TypeScript",
@@ -106,10 +109,7 @@ export const experience = [
     image: "business_seed_logo.jpg",
     name: "Mobile Developer",
     company: "Business Seed",
-    dates: [
-      ["02/2024", "07/2025"],
-      ["03/2025", "Till Date"],
-    ],
+    dates: [["02/2024", "07/2025"]],
     location: "Mexico DF, Mexico",
     skills: ["Dart", "Flutter", "GetX"],
   },
