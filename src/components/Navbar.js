@@ -22,6 +22,12 @@ export default function Navbar() {
           <a href="#experience" className="mr-5 hover:text-white">
             Experience
           </a>
+          <a href="#education" className="mr-5 hover:text-white">
+            Education
+          </a>
+          <a href="#achievements" className="mr-5 hover:text-white">
+            Achievements
+          </a>
         </nav>
         <a
           href="#contact"

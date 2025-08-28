@@ -2,6 +2,7 @@ import React from "react";
 import {
   BriefcaseIcon,
   CalendarIcon,
+  LocationMarkerIcon,
   OfficeBuildingIcon,
 } from "@heroicons/react/solid";
 import { experience } from "../data";
@@ -58,8 +59,8 @@ export default function Experience() {
                 ))}
               </div>
               <div className="flex absolute top-4 left-4 mt-4 ml-4">
-                <OfficeBuildingIcon className="w-4 h-4 inline-block mr-1" />
-                <span className="text-gray-500 text-xs">{item.type}</span>
+                <LocationMarkerIcon className="w-4 h-4 inline-block mr-1" />
+                <span className="text-gray-500 text-xs">{item.location}</span>
               </div>
             </div>
           ))}
