@@ -75,7 +75,7 @@ export const experience = [
     name: "Assistant Professor",
     company: "Havana University",
     dates: [["04/2022", "Till Date"]],
-    type: "Partial-time",
+    location: "Havana, Cuba",
     skills: ["Competitive Programming", "Data Structures and Algorithms"],
   },
   {
@@ -85,7 +85,7 @@ export const experience = [
     name: "Full Stack Developer",
     company: "jobs2live",
     dates: [["09/2023", "01/2024"]],
-    type: "Full-time",
+    location: "Madrid, Spain",
     skills: [
       "TypeScript",
       "React",
@@ -110,7 +110,7 @@ export const experience = [
       ["02/2024", "07/2025"],
       ["03/2025", "Till Date"],
     ],
-    type: "Full-time",
+    location: "Mexico DF, Mexico",
     skills: ["Dart", "Flutter", "GetX"],
   },
   {
@@ -119,7 +119,7 @@ export const experience = [
     name: "Mobile Developer",
     company: "Bizne",
     dates: [["05/2024", "07/2025"]],
-    type: "Full-time",
+    location: "Mexico DF, Mexico",
     skills: ["Dart", "Flutter", "GetX"],
   },
 ];
@@ -151,4 +151,47 @@ export const skills = [
   { text: "Redux", icon: "https://skillicons.dev/icons?i=redux" },
   { text: "Supabase", icon: "https://skillicons.dev/icons?i=supabase" },
   { text: "Docker", icon: "https://skillicons.dev/icons?i=docker" },
+];
+
+export const education = [
+  {
+    name: "Havana University",
+    degree: "Bachelor's degree in Computer Science",
+    image: "uh_logo.jpg",
+    dates: [["11/2021", "03/2025"]],
+    quote:
+      "During my studies at the university I acquired knowledge and attitudes about programming and algorithms, which helped me train as a computer scientist.",
+    location: "Havana, Cuba",
+    skills: [
+      "Programming",
+      "Algebra",
+      "Data Structures",
+      "Algorithms",
+      "Databases",
+      "Distributed systems",
+    ],
+  },
+];
+
+export const achievements = [
+  {
+    text: "Participation in mathematics competitions (2 times national preelection)",
+    icon: "default_achievement.png",
+  },
+  {
+    text: "10th place in ICPC-2021 Caribbean Finals",
+    icon: "icpc_logo.png",
+  },
+  {
+    text: "12th place in ICPC-2022 Caribbean Finals",
+    icon: "icpc_logo.png",
+  },
+  {
+    text: "Silver Medal in ICPC-2023 Caribbean Finals",
+    icon: "icpc_logo.png",
+  },
+  {
+    text: "Gold Title and Scientific Merit Award (Bachelor's Degree)",
+    icon: "gold_title.webp",
+  },
 ];
