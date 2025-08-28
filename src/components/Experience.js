@@ -48,9 +48,14 @@ export default function Experience() {
               </div>
               <div className="flex absolute top-4 right-4 mt-4 mr-4">
                 <CalendarIcon className="w-4 h-4 inline-block mr-1" />
-                <span className="text-gray-500 text-xs">
-                  {item.startDate} - {item.endDate}
-                </span>
+                {item.dates.map((d, ind) => (
+                  <span key={ind} className="text-gray-500 text-xs">
+                    {d[0]} - {d[1]}
+                    {ind != item.dates.length - 1 && (
+                      <span className="h-8 w-px bg-gray-300 mx-2" />
+                    )}
+                  </span>
+                ))}
               </div>
               <div className="flex absolute top-4 left-4 mt-4 ml-4">
                 <OfficeBuildingIcon className="w-4 h-4 inline-block mr-1" />
