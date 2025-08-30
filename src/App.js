@@ -7,7 +7,6 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import EducationAndAchievements from "./components/Education";
 import Achievements from "./components/Achievements";
-// import Testimonials from "./components/Testimonials";
 
 export default function App() {
   return (

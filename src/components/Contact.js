@@ -9,21 +9,45 @@ import {
 import React from "react";
 
 export default function Contact() {
-  const [formData, setFormData] = React.useState({ email: "", message: "" });
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = React.useState(false);
+  const [notification, setNotification] = React.useState(null); // {type: "success" | "error", text: string}
+  const [visible, setVisible] = React.useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const telegramToken = process.env.REACT_APP_TELEGRAM_BOT_ID;
-    const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
+    const showNotification = (v) => {
+      setNotification(v);
+      setVisible(true);
 
-    const text = `Email: ${formData.email}\nMessage: ${formData.message}`;
+      setTimeout(() => setVisible(false), 2000);
 
-    if (formData.message.length === 0 || formData.email.length === 0) {
-      alert("Please, fill all the fields");
+      setTimeout(() => setNotification(null), 2500);
+    };
+
+    if (
+      formData.message.trim().length === 0 ||
+      formData.email.trim().length === 0 ||
+      formData.name.trim().length === 0
+    ) {
+      showNotification({
+        type: "error",
+        text: "Please, fill all the fields",
+      });
       return;
     }
 
+    const telegramToken = process.env.REACT_APP_TELEGRAM_BOT_ID;
+    const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
+    const text = `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
+
     try {
+      setLoading(true);
       await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,9 +56,19 @@ export default function Contact() {
           text: text,
         }),
       });
-      alert("Message sent successfully");
+
+      showNotification({
+        type: "success",
+        text: "Message sent successfully",
+      });
+      setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      alert("The message could not be sent");
+      showNotification({
+        type: "error",
+        text: "The message could not be sent",
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,18 +85,43 @@ export default function Contact() {
           </p>
         </div>
       </div>
+
+      {notification && (
+        <div
+          className={`fixed bottom-10 right-10 z-50 px-4 py-2 rounded-lg shadow-lg text-white transition-opacity duration-1000 ${
+            visible ? "opacity-100" : "opacity-0"
+          } ${notification.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+        >
+          {notification.text}
+        </div>
+      )}
+
       <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap pb-10 gap-10">
         <div className="container px-5 mx-auto ">
           <h3 className="text-white sm:text-4xl text-3xl mb-10 font-medium title-font">
             Send me a message
           </h3>
-          <form
-            netlify
-            name="contact"
-            onSubmit={handleSubmit}
-            data-netlify="true"
-            className="flex flex-wrap -m-2"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-wrap -m-2">
+            <div className="p-2 w-full">
+              <div className="relative">
+                <label
+                  htmlFor="name"
+                  className="leading-7 text-sm text-gray-400"
+                >
+                  Name
+                </label>
+                <input
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors"
+                />
+              </div>
+            </div>
             <div className="p-2 w-full">
               <div className="relative">
                 <label
@@ -73,13 +132,13 @@ export default function Contact() {
                 </label>
                 <input
                   value={formData.email}
-                  onChange={(e) => {
-                    setFormData({ ...formData, email: e.target.value });
-                  }}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   type="email"
                   id="email"
                   name="email"
-                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors"
                 />
               </div>
             </div>
@@ -93,27 +152,59 @@ export default function Contact() {
                 </label>
                 <textarea
                   value={formData.message}
-                  onChange={(e) => {
-                    setFormData({ ...formData, message: e.target.value });
-                  }}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   id="message"
                   name="message"
-                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors"
                 ></textarea>
               </div>
             </div>
             <div className="p-2 w-full">
               <button
-                loading="lazy"
                 type="submit"
-                className="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                disabled={loading}
+                className={`flex mx-auto text-white border-0 py-2 px-8 rounded text-lg transition ${
+                  loading
+                    ? "bg-gray-600 cursor-not-allowed"
+                    : "bg-green-500 hover:bg-green-600"
+                }`}
               >
-                Send
+                {loading ? (
+                  <span className="flex items-center">
+                    <svg
+                      className="animate-spin h-5 w-5 mr-2 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  "Send"
+                )}
               </button>
             </div>
           </form>
         </div>
-        <div className=" flex flex-col md:ml-auto w-1/2">
+
+        {/* Panel de datos de contacto */}
+        <div className="flex flex-col md:ml-auto w-1/2">
           <h3 className="text-white sm:text-4xl text-3xl mb-10 font-medium title-font">
             My contact data
           </h3>
@@ -170,7 +261,6 @@ export default function Contact() {
               raudel25
             </a>
           </div>
-          {/* Agrega más información de contacto si es necesario */}
         </div>
       </div>
     </section>
