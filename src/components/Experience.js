@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  BriefcaseIcon,
-  CalendarIcon,
-  LocationMarkerIcon,
-} from "@heroicons/react/solid";
+import { BriefcaseIcon } from "@heroicons/react/solid";
+import Card from "./Card.js";
 import { experience } from "../data";
 
 export default function Experience() {
@@ -19,52 +16,7 @@ export default function Experience() {
         </p>
         <div className="flex flex-wrap -m-4">
           {experience.map((item) => (
-            <div className="p-4 md:w-1/2 w-full relative">
-              <div className="h-full bg-gray-800 bg-opacity-40 pl-8 pr-8 pb-8 pt-12 rounded">
-                <div className="inline-flex items-center">
-                  <img
-                    alt="company"
-                    src={item.image}
-                    className="w-12 flex-shrink-0 object-cover object-center"
-                  />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-white">
-                      {item.name}
-                    </span>
-                    <span className="text-gray-500 text-sm">
-                      {item.company}
-                    </span>
-                  </span>
-                  <div className="w-12" />
-                </div>
-
-                <div className="mt-4 flex h-6 justify-center items-center">
-                  <CalendarIcon className="w-4 h-4 block flex-shrink-0" />
-                  <div className="ml-2 text-gray-500 text-xs leading-none flex flex-wrap">
-                    {item.dates.map((d, ind) => (
-                      <span key={ind} className="flex items-center">
-                        {d[0]} - {d[1]}
-                        {ind !== item.dates.length - 1 && (
-                          <span className="h-4 w-px bg-gray-300 mx-2" />
-                        )}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <p className="leading-relaxed mt-4">{item.quote}</p>
-
-                <div className="mt-4">
-                  <span className="font-medium text-green-500 text-sm">
-                    {item.skills.join(", ")}
-                  </span>
-                </div>
-              </div>
-              <div className="flex absolute top-4 left-4 mt-4 ml-4">
-                <LocationMarkerIcon className="w-4 h-4 inline-block mr-1" />
-                <span className="text-gray-500 text-xs">{item.location}</span>
-              </div>
-            </div>
+            <Card key={item.name} item={item} />
           ))}
         </div>
       </div>
