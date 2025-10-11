@@ -118,7 +118,7 @@ export const experience = [
     image: "bizne.jpg",
     name: "Mobile Developer",
     company: "Bizne",
-    dates: [["05/2024", "07/2025"]],
+    dates: [["05/2024", "Till Date"]],
     location: "Mexico DF, Mexico",
     skills: ["Dart", "Flutter", "GetX"],
   },
