@@ -191,7 +191,7 @@ export const achievements = [
     icon: "icpc_logo.png",
   },
   {
-    text: "Gold Title and Scientific Merit Award (Bachelor's Degree)",
+    text: "Summa Cum Laude and Scientific Merit Award (Bachelor's Degree)",
     icon: "gold_title.webp",
   },
 ];
