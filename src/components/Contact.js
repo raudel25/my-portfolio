@@ -1,18 +1,16 @@
 // src/components/Contact.js
 
-import {
-  LinkIcon,
-  MailIcon,
-  PhoneIcon,
-  UserIcon,
-} from "@heroicons/react/solid";
 import React from "react";
+import { email, phone, socials } from "../data";
+import SectionHeader from "./SectionHeader";
+import SocialIcon from "./SocialIcon";
 
 export default function Contact() {
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
     message: "",
+    website: "",
   });
   const [loading, setLoading] = React.useState(false);
   const [notification, setNotification] = React.useState(null); // {type: "success" | "error", text: string}
@@ -37,35 +35,31 @@ export default function Contact() {
     ) {
       showNotification({
         type: "error",
-        text: "Please, fill all the fields",
+        text: "Fill in your name, email and message",
       });
       return;
     }
 
-    const telegramToken = process.env.REACT_APP_TELEGRAM_BOT_ID;
-    const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
-    const text = `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`;
-
     try {
       setLoading(true);
-      await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: text,
-        }),
+        body: JSON.stringify(formData),
       });
+      if (!response.ok) {
+        throw new Error(`Contact API responded ${response.status}`);
+      }
 
       showNotification({
         type: "success",
-        text: "Message sent successfully",
+        text: "Message sent",
       });
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", message: "", website: "" });
     } catch (error) {
       showNotification({
         type: "error",
-        text: "The message could not be sent",
+        text: `Message not sent. Try again or email ${email}`,
       });
     } finally {
       setLoading(false);
@@ -74,107 +68,89 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-        <div className="flex flex-col w-full">
-          <MailIcon className="mx-auto inline-block w-10 mb-4" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Contact
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Write a message
-          </p>
-        </div>
-      </div>
+      <div className="container px-5 py-16 mx-auto">
+        <SectionHeader title="Contact">
+          Have a project or a role in mind? Send me a message or reach me
+          directly.
+        </SectionHeader>
 
-      {notification && (
-        <div
-          className={`fixed bottom-10 right-10 z-50 px-4 py-2 rounded-lg shadow-lg text-white transition-opacity duration-1000 ${
-            visible ? "opacity-100" : "opacity-0"
-          } ${notification.type === "success" ? "bg-green-600" : "bg-red-600"}`}
-        >
-          {notification.text}
-        </div>
-      )}
-
-      <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap pb-10 gap-10">
-        <div className="container px-5 mx-auto ">
-          <h3 className="text-white sm:text-4xl text-3xl mb-10 font-medium title-font">
-            Send me a message
-          </h3>
-          <form onSubmit={handleSubmit} className="flex flex-wrap -m-2">
-            <div className="p-2 w-full">
-              <div className="relative">
-                <label
-                  htmlFor="name"
-                  className="leading-7 text-sm text-gray-400"
-                >
-                  Name
-                </label>
-                <input
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors"
-                />
-              </div>
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+          <form onSubmit={handleSubmit} className="md:w-3/5 flex flex-col gap-4">
+            {/* Honeypot: hidden from people, filled in by spam bots. */}
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                value={formData.website}
+                onChange={(e) =>
+                  setFormData({ ...formData, website: e.target.value })
+                }
+                type="text"
+                id="website"
+                name="website"
+                tabIndex="-1"
+                autoComplete="off"
+              />
             </div>
-            <div className="p-2 w-full">
-              <div className="relative">
-                <label
-                  htmlFor="email"
-                  className="leading-7 text-sm text-gray-400"
-                >
-                  Email
-                </label>
-                <input
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors"
-                />
-              </div>
+            <div>
+              <label htmlFor="name" className="leading-7 text-sm">
+                Name
+              </label>
+              <input
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                type="text"
+                id="name"
+                name="name"
+                autoComplete="name"
+                className="w-full bg-surface rounded border border-line focus:border-gold focus:bg-ink focus:ring-2 focus:ring-gold focus:ring-opacity-30 text-base outline-none text-fg py-1 px-3 transition-colors leading-8"
+              />
             </div>
-            <div className="p-2 w-full">
-              <div className="relative">
-                <label
-                  htmlFor="message"
-                  className="leading-7 text-sm text-gray-400"
-                >
-                  Message
-                </label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  id="message"
-                  name="message"
-                  className="w-full bg-gray-800 rounded border border-gray-700 focus:border-green-500 focus:bg-gray-900 focus:ring-2 focus:ring-green-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors"
-                ></textarea>
-              </div>
+            <div>
+              <label htmlFor="email" className="leading-7 text-sm">
+                Email
+              </label>
+              <input
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="email"
+                className="w-full bg-surface rounded border border-line focus:border-gold focus:bg-ink focus:ring-2 focus:ring-gold focus:ring-opacity-30 text-base outline-none text-fg py-1 px-3 transition-colors leading-8"
+              />
             </div>
-            <div className="p-2 w-full">
+            <div>
+              <label htmlFor="message" className="leading-7 text-sm">
+                Message
+              </label>
+              <textarea
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                id="message"
+                name="message"
+                className="w-full bg-surface rounded border border-line focus:border-gold focus:bg-ink focus:ring-2 focus:ring-gold focus:ring-opacity-30 text-base outline-none text-fg py-1 px-3 transition-colors h-40 resize-none leading-6"
+              ></textarea>
+            </div>
+            <div>
               <button
                 type="submit"
                 disabled={loading}
-                className={`flex mx-auto text-white border-0 py-2 px-8 rounded text-lg transition ${
+                className={`inline-flex items-center font-medium py-2 px-8 rounded text-lg transition ${
                   loading
-                    ? "bg-gray-600 cursor-not-allowed"
-                    : "bg-green-500 hover:bg-green-600"
+                    ? "bg-line text-muted cursor-not-allowed"
+                    : "bg-gold text-ink hover:bg-gold-dark"
                 }`}
               >
                 {loading ? (
-                  <span className="flex items-center">
+                  <span className="inline-flex items-center">
                     <svg
-                      className="animate-spin h-5 w-5 mr-2 text-white"
+                      className="animate-spin h-5 w-5 mr-2"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -193,76 +169,55 @@ export default function Contact() {
                         d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                       ></path>
                     </svg>
-                    Sending...
+                    Sending…
                   </span>
                 ) : (
-                  "Send"
+                  "Send message"
                 )}
               </button>
             </div>
           </form>
-        </div>
 
-        {/* Panel de datos de contacto */}
-        <div className="flex flex-col md:ml-auto w-1/2">
-          <h3 className="text-white sm:text-4xl text-3xl mb-10 font-medium title-font">
-            My contact data
-          </h3>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">Full name</h3>
-            <p className="text-white flex items-center">
-              <UserIcon className="w-4 mr-2" />
-              Raudel Alejandro Gómez Molina
-            </p>
-          </div>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">Email</h3>
+          <div className="md:w-2/5">
+            <p className="text-sm mb-1">Email</p>
             <a
-              className="text-white flex items-center"
-              href="mailto:raudel.gmolina@gmail.com"
+              href={`mailto:${email}`}
+              className="font-display text-2xl font-semibold text-fg hover:text-gold break-all"
             >
-              <MailIcon className="w-4 mr-2" /> raudel.gmolina@gmail.com
+              {email}
             </a>
-          </div>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">Phone</h3>
-            <p className="text-white flex items-center">
-              <PhoneIcon className="w-4 mr-2" />
-              +53 59253662
-            </p>
-          </div>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">Github</h3>
-            <a
-              className="text-white flex items-center"
-              href="https://github.com/raudel25"
-            >
-              <LinkIcon className="w-4 mr-2" />
-              raudel25
-            </a>
-          </div>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">LinkedIn</h3>
-            <a
-              className="text-white flex items-center"
-              href="https://www.linkedin.com/in/raudel25/"
-            >
-              <LinkIcon className="w-4 mr-2" />
-              raudel25
-            </a>
-          </div>
-          <div className="relative mb-2">
-            <h3 className="leading-7 text-sm text-gray-400">Codeforces</h3>
-            <a
-              className="text-white flex items-center"
-              href="https://codeforces.com/profile/raudel25"
-            >
-              <LinkIcon className="w-4 mr-2" />
-              raudel25
-            </a>
+            <p className="text-sm mt-6 mb-1">Phone</p>
+            <p className="text-fg text-lg">{phone}</p>
+            <ul className="mt-8 border-t border-line">
+              {socials.map((social) => (
+                <li key={social.name} className="border-b border-line">
+                  <a
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 py-3 text-fg hover:text-gold"
+                  >
+                    <SocialIcon name={social.icon} className="w-5 h-5" />
+                    <span className="font-medium">{social.name}</span>
+                    <span className="ml-auto text-muted">{social.handle}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
+
+      {notification && (
+        <div
+          role="status"
+          className={`fixed bottom-6 right-6 left-6 sm:left-auto z-50 px-4 py-3 rounded-lg shadow-lg text-white transition-opacity duration-1000 ${
+            visible ? "opacity-100" : "opacity-0"
+          } ${notification.type === "success" ? "bg-green-600" : "bg-red-600"}`}
+        >
+          {notification.text}
+        </div>
+      )}
     </section>
   );
 }

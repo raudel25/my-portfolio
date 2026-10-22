@@ -1,52 +1,71 @@
 import React from "react";
-import { cvLink } from "../data";
+import { cvLink, socials } from "../data";
+import SocialIcon from "./SocialIcon";
 
 export default function About() {
   return (
     <section id="about">
-      <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center gap-10">
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img
-            className="object-cover object-center rounded-full"
-            alt="raudel25"
-            src="logo.jpg"
-          />
-        </div>
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            Hi, I'm Raudel.
-            <br className="hidden lg:inline-block" />
-            Software Developer/Computer Scientist.
+      <div className="container mx-auto px-5 pt-12 pb-20 md:pt-24 md:pb-28 flex flex-col-reverse md:flex-row md:items-center gap-10 md:gap-16">
+        <div className="flex-1 max-w-2xl">
+          <p className="reveal text-lg text-fg mb-4">Hi, I'm Raudel.</p>
+          <h1
+            className="reveal font-display text-5xl sm:text-6xl font-semibold leading-tight text-fg mb-6"
+            style={{ animationDelay: "80ms" }}
+          >
+            Software developer and computer scientist.
           </h1>
-          <p className="mb-8 leading-relaxed">
-            I am a computer scientist at the University of Havana and software
-            developer. I am passionate about mathematics and algorithms and I am
-            interested in working in the fields of software engineering and
-            artificial intelligence. I also work as a competitive programmer and
-            ICPC contestant.
+          <p
+            className="reveal text-lg leading-relaxed mb-8"
+            style={{ animationDelay: "200ms" }}
+          >
+            I build web and mobile apps with React, .NET and Flutter, working
+            with Claude Code and AI agents through spec-driven development. I
+            graduated Summa Cum Laude in Computer Science from the University
+            of Havana, where I also teach algorithms, and I'm an ICPC Caribbean
+            silver medalist.
           </p>
-          <div className="flex justify-center">
+          <div
+            className="reveal flex flex-wrap items-center gap-4"
+            style={{ animationDelay: "320ms" }}
+          >
             <a
               href="#contact"
-              className="inline-flex text-white bg-green-500 border-0 py-2 px-4 sm:px-6 focus:outline-none hover:bg-green-600 rounded text-sm sm:text-lg"
+              className="inline-flex text-ink font-medium bg-gold py-2 px-6 rounded hover:bg-gold-dark text-lg"
             >
-              Work With Me
-            </a>
-            <a
-              href="#projects"
-              className="ml-2 sm:ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-4 sm:px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-sm sm:text-lg"
-            >
-              See My Projects
+              Contact me
             </a>
             <a
               href={cvLink}
               target="_blank"
-              className="ml-2 sm:ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-4 sm:px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-sm sm:text-lg"
+              rel="noopener noreferrer"
+              className="inline-flex text-fg bg-surface py-2 px-6 rounded hover:bg-line text-lg"
             >
-              See My CV
+              View CV
             </a>
+            <div className="flex items-center gap-1 -ml-2 sm:ml-2">
+              {socials.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="p-2 hover:text-fg"
+                >
+                  <SocialIcon name={social.icon} className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+        <img
+          className="reveal w-32 h-32 md:w-64 md:h-64 lg:w-80 lg:h-80 flex-shrink-0 object-cover object-center rounded-full"
+          style={{ animationDelay: "200ms" }}
+          width="640"
+          height="640"
+          alt="Raudel Alejandro Gómez Molina"
+          src="logo.jpg"
+        />
       </div>
     </section>
   );

@@ -1,42 +1,106 @@
 // src/components/Navbar.js
 
-import { ArrowRightIcon } from "@heroicons/react/solid";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import React from "react";
 
+const links = [
+  { id: "achievements", label: "Achievements" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "education", label: "Education" },
+];
+
 export default function Navbar() {
+  const [open, setOpen] = React.useState(false);
+  const [active, setActive] = React.useState(null);
+
+  // Highlight the link of the section crossing the middle of the viewport.
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    document
+      .querySelectorAll("section[id]")
+      .forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  const linkClass = (id) =>
+    `py-1 border-b-2 ${
+      active === id
+        ? "text-fg border-gold"
+        : "border-transparent hover:text-fg"
+    }`;
+
   return (
-    <header className="bg-gray-800 md:sticky top-0 z-10">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="title-font font-medium text-white mb-4 md:mb-0">
-          <a href="#about" className="ml-3 text-xl">
-            Raudel Alejandro Gómez Molina
-          </a>
+    <header className="sticky top-0 z-20 bg-ink bg-opacity-95 border-b border-line">
+      <div className="container mx-auto px-5 h-16 flex items-center justify-between">
+        <a
+          href="#about"
+          className="font-display font-semibold text-fg text-xl"
+          onClick={() => setOpen(false)}
+        >
+          Raudel Gómez
         </a>
-        <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">
-          <a href="#projects" className="mr-5 hover:text-white">
-            Projects
-          </a>
-          <a href="#skills" className="mr-5 hover:text-white">
-            Skills
-          </a>
-          <a href="#experience" className="mr-5 hover:text-white">
-            Experience
-          </a>
-          <a href="#education" className="mr-5 hover:text-white">
-            Education
-          </a>
-          <a href="#achievements" className="mr-5 hover:text-white">
-            Achievements
+        <nav className="hidden md:flex items-center gap-6">
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={linkClass(link.id)}
+              aria-current={active === link.id ? "true" : undefined}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="text-ink font-medium bg-gold py-1.5 px-4 rounded hover:bg-gold-dark"
+          >
+            Contact
           </a>
         </nav>
-        <a
-          href="#contact"
-          className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
+        <button
+          type="button"
+          className="md:hidden p-2 -mr-2 text-fg"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen(!open)}
         >
-          Hire Me
-          <ArrowRightIcon className="w-4 h-4 ml-1" />
-        </a>
+          {open ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
+        </button>
       </div>
+      {open && (
+        <nav
+          id="mobile-menu"
+          className="md:hidden border-t border-line px-5 py-4 flex flex-col gap-4 text-lg"
+        >
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={active === link.id ? "text-fg" : "hover:text-fg"}
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="text-gold font-medium"
+            onClick={() => setOpen(false)}
+          >
+            Contact
+          </a>
+        </nav>
+      )}
     </header>
   );
 }

@@ -1,197 +1,289 @@
 export const cvLink = "https://raudel25.github.io/my-cv/document.pdf";
 
+export const email = "raudel.gmolina@gmail.com";
+
+export const phone = "+53 59253662";
+
+export const socials = [
+  {
+    name: "GitHub",
+    handle: "raudel25",
+    url: "https://github.com/raudel25",
+    icon: "github",
+  },
+  {
+    name: "LinkedIn",
+    handle: "raudel25",
+    url: "https://www.linkedin.com/in/raudel25/",
+    icon: "linkedin",
+  },
+  {
+    name: "Codeforces",
+    handle: "raudel25",
+    url: "https://codeforces.com/profile/raudel25",
+    icon: "codeforces",
+  },
+];
+
 export const projects = [
   {
     title: "Travel Agency",
-    subtitle: "React, Antd, .NET, MySQL and Odata",
+    stack: ["React", "Antd", ".NET", "MySQL", "OData"],
     description:
-      "A website for the interaction of tourists and travel agencies",
-    image: "./TravelAgency.png",
+      "Web platform connecting tourists with travel agencies, with a React client and an ASP.NET Core API over MySQL.",
+    image: "projects/TravelAgency.webp",
     sourceUrl: "https://github.com/ARJ-Code/Travel-Agency",
     liveUrl: "https://travel-agency-client.onrender.com/",
   },
   {
-    title: "Teslo shop",
-    subtitle: "React, Next, Tailwind CSS ans PostgreSQL",
-    description: "A ecommerce",
-    image: "./teslo-shop.png",
-    sourceUrl: "https://github.com/raudel25/teslo-shop",
-    liveUrl: "https://teslo-shop-phi.vercel.app/",
-  },
-  {
     title: "Cinemapedia",
-    subtitle: "Flutter",
-    description: "A Movie Db client",
-    image: "./Cinemapedia.jpg",
+    stack: ["Flutter", "Dart"],
+    description:
+      "Mobile client for The Movie Database that shows what's playing in theaters.",
+    image: "projects/Cinemapedia.webp",
     sourceUrl: "https://github.com/raudel25/cinemapedia_app",
     liveUrl: "https://github.com/raudel25/cinemapedia_app/releases",
+    liveLabel: "Releases",
+  },
+  {
+    title: "Chess",
+    stack: ["Python", "pygame"],
+    description:
+      "Chess engine with MiniMax (alpha-beta pruning) and Monte Carlo tree search players, playable through a pygame interface.",
+    image: "projects/chess.webp",
+    sourceUrl: "https://github.com/raudel25/Chess",
   },
   {
     title: "Matcom Social",
-    subtitle: "React, Material UI, Go and PostgreSQL",
-    description: "A social network",
-    image: "./social-network.png",
+    stack: ["React", "Material UI", "Go", "PostgreSQL"],
+    description:
+      "Social network with profiles, posts and followers, backed by a Go API.",
+    image: "projects/social-network.webp",
     sourceUrl: "https://github.com/raudel25/social-network-api",
     liveUrl: "https://social-network-client-6f8h.onrender.com",
   },
   {
+    title: "Teslo Shop",
+    stack: ["React", "Next", "Tailwind CSS", "PostgreSQL"],
+    description: "Clothing e-commerce store built with Next.js.",
+    image: "projects/teslo-shop.webp",
+    sourceUrl: "https://github.com/raudel25/teslo-shop",
+    liveUrl: "https://teslo-shop-phi.vercel.app/",
+  },
+  {
     title: "Expression",
-    subtitle: "Blazor, Boostrap and Mathematics",
-    description: "A suite of mathematical expressions",
-    image: "./Expression.png",
+    stack: ["C#", "Blazor", "Bootstrap"],
+    description:
+      "Parses math expressions from text, computes their derivatives and evaluates them with BigNum, my own arbitrary-precision number library.",
+    image: "projects/Expression.webp",
     sourceUrl: "https://github.com/raudel25/Expression",
     liveUrl: "https://expression-dxtu.onrender.com",
   },
   {
     title: "Journal App",
-    subtitle: "React, Redux and Supabase",
-    description: "Learning React",
-    image: "./JournalApp.png",
+    stack: ["React", "Redux", "Supabase"],
+    description: "Web app where users write and store their notes.",
+    image: "projects/JournalApp.webp",
     sourceUrl: "https://github.com/raudel25/Journal-App",
     liveUrl: "https://raudel25.github.io/Journal-App/",
   },
   {
     title: "Calendar App",
-    subtitle: "React, Redux, PostgreSQL and .NET",
-    description: "Learning React",
-    image: "./CalendarApp.png",
+    stack: ["React", "Redux", ".NET", "PostgreSQL"],
+    description: "Calendar where users create and manage their events.",
+    image: "projects/CalendarApp.webp",
     sourceUrl: "https://github.com/raudel25/Calendar-App",
     liveUrl: "https://calendar-app-44rm.onrender.com/",
   },
-  {
-    title: "Chess",
-    subtitle: "Python and pygame",
-    description: "A chess game",
-    image: "./chess.png",
-    sourceUrl: "https://github.com/raudel25/Chess",
-  },
 ];
 
+// Grouped by company like LinkedIn, most recent first.
+// Dates are "MM/YYYY" or "Present".
 export const experience = [
   {
-    quote:
-      "During my studies at the university I have worked as an assistant in the subjects of Algebra and Data Structures and Algorithms",
-    image: "uh_logo.jpg",
-    name: "Assistant Professor",
-    company: "Havana University",
-    dates: [["04/2022", "Till Date"]],
-    location: "Havana, Cuba",
-    skills: ["Competitive Programming", "Data Structures and Algorithms"],
-  },
-  {
-    quote:
-      "I worked as a full stack developer developing my back-end and front-end skills",
-    image: "./jobs2live_logo.jpg",
-    name: "Full Stack Developer",
-    company: "jobs2live",
-    dates: [
-      ["09/2023", "01/2024"],
-      ["03/2025", "Till Date"],
-    ],
-    location: "Madrid, Spain",
-    skills: [
-      "TypeScript",
-      "React",
-      "Antd",
-      "Next",
-      "C#",
-      ".Net",
-      "PostgreSQL",
-      "Odata",
-      "Playwright",
-      "Nodriver",
-      "Web Scraping",
-    ],
-  },
-  {
-    quote:
-      "Work as a mobile developer exploring a new world of software development",
-    image: "business_seed_logo.jpg",
-    name: "Mobile Developer",
-    company: "Business Seed",
-    dates: [["02/2024", "07/2025"]],
-    location: "Mexico DF, Mexico",
-    skills: ["Dart", "Flutter", "GetX"],
-  },
-  {
-    quote: "I worked creating hybrid applications for Bizne platform",
+    company: "biZne",
     image: "bizne.jpg",
-    name: "Mobile Developer",
-    company: "Bizne",
-    dates: [["05/2024", "Till Date"]],
-    location: "Mexico DF, Mexico",
-    skills: ["Dart", "Flutter", "GetX"],
+    roles: [
+      {
+        title: "Senior Software Engineer, Mobile & Web",
+        dates: ["09/2025", "Present"],
+        location: "Mexico City, Mexico",
+        description:
+          "I build scalable mobile and web interfaces with Flutter, Dart and modern web frameworks, delivering core features end to end, from UI implementation to state management and performance. I use AI agents and AI-driven workflows to speed up development and refactoring while keeping code quality and testability high.",
+        skills: ["Dart", "Flutter", "GetX", "AI-assisted development"],
+      },
+    ],
   },
-];
-
-export const skills = [
-  { text: "C#", icon: "https://skillicons.dev/icons?i=cs" },
-  { text: "Python", icon: "https://skillicons.dev/icons?i=python" },
-  { text: "Rust", icon: "https://skillicons.dev/icons?i=rust" },
-  { text: "C", icon: "https://skillicons.dev/icons?i=c" },
-  { text: "C++", icon: "https://skillicons.dev/icons?i=cpp" },
-  { text: "Javascript", icon: "https://skillicons.dev/icons?i=js" },
-  { text: "Typescript", icon: "https://skillicons.dev/icons?i=ts" },
-  { text: "Dart", icon: "https://skillicons.dev/icons?i=dart" },
-  { text: "Go", icon: "https://skillicons.dev/icons?i=go" },
-  { text: "React", icon: "https://skillicons.dev/icons?i=react" },
-  { text: "Next", icon: "https://skillicons.dev/icons?i=next" },
-  { text: "Flutter", icon: "https://skillicons.dev/icons?i=flutter" },
-  { text: ".NET", icon: "https://skillicons.dev/icons?i=dotnet" },
-  { text: "MySQL", icon: "https://skillicons.dev/icons?i=mysql" },
-  { text: "PostgreSQL", icon: "https://skillicons.dev/icons?i=postgresql" },
-  { text: "HTML", icon: "https://skillicons.dev/icons?i=html" },
-  { text: "CSS", icon: "https://skillicons.dev/icons?i=css" },
-  { text: "SASS", icon: "https://skillicons.dev/icons?i=sass" },
-  { text: "Tailwind CSS", icon: "https://skillicons.dev/icons?i=tailwind" },
-  { text: "Git", icon: "https://skillicons.dev/icons?i=git" },
-  { text: "Github", icon: "https://skillicons.dev/icons?i=github" },
-  { text: "Linux", icon: "https://skillicons.dev/icons?i=linux" },
-  { text: "Latex", icon: "https://skillicons.dev/icons?i=latex" },
-  { text: "Redux", icon: "https://skillicons.dev/icons?i=redux" },
-  { text: "Supabase", icon: "https://skillicons.dev/icons?i=supabase" },
-  { text: "Docker", icon: "https://skillicons.dev/icons?i=docker" },
+  {
+    company: "University of Havana",
+    image: "uh_logo.jpg",
+    roles: [
+      {
+        title: "Professor of Data Structures and Algorithms",
+        dates: ["03/2025", "Present"],
+        location: "Havana, Cuba",
+        description: "I teach the Data Structures and Algorithms course.",
+        skills: ["Data Structures and Algorithms", "Competitive Programming"],
+      },
+      {
+        title: "Student Assistant",
+        dates: ["04/2022", "03/2025"],
+        location: "Havana, Cuba",
+        description:
+          "Teaching assistant for the Algebra and Data Structures and Algorithms courses during my degree.",
+        skills: ["Algebra", "Data Structures and Algorithms"],
+      },
+    ],
+  },
+  {
+    company: "jobs2live",
+    image: "./jobs2live_logo.jpg",
+    roles: [
+      {
+        title: "Full Stack Developer",
+        dates: ["09/2023", "09/2025"],
+        location: "Madrid, Spain",
+        description:
+          "Full stack development with React and Next on the client, .NET and PostgreSQL on the server, and web scraping with Playwright and Nodriver.",
+        skills: [
+          "TypeScript",
+          "React",
+          "Antd",
+          "Next",
+          "C#",
+          ".Net",
+          "PostgreSQL",
+          "Odata",
+          "Playwright",
+          "Nodriver",
+          "Web Scraping",
+        ],
+      },
+    ],
+  },
+  {
+    company: "Business Seed",
+    image: "business_seed_logo.jpg",
+    roles: [
+      {
+        title: "Mobile Developer",
+        dates: ["02/2024", "12/2024"],
+        location: "Mexico City, Mexico",
+        description: "Mobile app development with Flutter.",
+        skills: ["Dart", "Flutter", "GetX"],
+      },
+    ],
+  },
 ];
 
 export const education = [
   {
-    name: "Havana University",
-    degree: "Bachelor's degree in Computer Science",
+    company: "University of Havana",
     image: "uh_logo.jpg",
-    dates: [["11/2021", "03/2025"]],
-    quote:
-      "During my studies at the university I acquired knowledge and attitudes about programming and algorithms, which helped me train as a computer scientist.",
-    location: "Havana, Cuba",
-    skills: [
-      "Programming",
-      "Algebra",
-      "Data Structures",
-      "Algorithms",
-      "Databases",
-      "Distributed systems",
+    roles: [
+      {
+        title: "Bachelor's degree in Computer Science",
+        dates: ["11/2021", "03/2025"],
+        location: "Havana, Cuba",
+        description:
+          "Graduated Summa Cum Laude, with a focus on programming, algorithms and mathematics.",
+        skills: [
+          "Programming",
+          "Algebra",
+          "Data Structures",
+          "Algorithms",
+          "Databases",
+          "Distributed systems",
+        ],
+      },
     ],
   },
 ];
 
+const icon = (id) => `https://skillicons.dev/icons?i=${id}`;
+
+export const skillGroups = [
+  {
+    name: "Languages",
+    skills: [
+      { text: "C#", icon: icon("cs") },
+      { text: "TypeScript", icon: icon("ts") },
+      { text: "JavaScript", icon: icon("js") },
+      { text: "Dart", icon: icon("dart") },
+      { text: "Python", icon: icon("python") },
+      { text: "Go", icon: icon("go") },
+      { text: "C++", icon: icon("cpp") },
+      { text: "C", icon: icon("c") },
+      { text: "Rust", icon: icon("rust") },
+    ],
+  },
+  {
+    name: "Frontend and mobile",
+    skills: [
+      { text: "React", icon: icon("react") },
+      { text: "Next", icon: icon("next") },
+      { text: "Redux", icon: icon("redux") },
+      { text: "Flutter", icon: icon("flutter") },
+      { text: "Tailwind CSS", icon: icon("tailwind") },
+      { text: "SASS", icon: icon("sass") },
+      { text: "HTML", icon: icon("html") },
+      { text: "CSS", icon: icon("css") },
+    ],
+  },
+  {
+    name: "Backend and data",
+    skills: [
+      { text: ".NET", icon: icon("dotnet") },
+      { text: "PostgreSQL", icon: icon("postgresql") },
+      { text: "MySQL", icon: icon("mysql") },
+      { text: "Supabase", icon: icon("supabase") },
+    ],
+  },
+  {
+    name: "AI-assisted development",
+    skills: [
+      { text: "Claude Code", icon: "skills/claude-code.svg" },
+      { text: "AI agent orchestration", icon: "skills/ai-agents.svg" },
+      { text: "Spec-driven development", icon: "skills/spec-driven.svg" },
+    ],
+  },
+  {
+    name: "Tools",
+    skills: [
+      { text: "Git", icon: icon("git") },
+      { text: "GitHub", icon: icon("github") },
+      { text: "Docker", icon: icon("docker") },
+      { text: "Linux", icon: icon("linux") },
+      { text: "LaTeX", icon: icon("latex") },
+    ],
+  },
+];
+
+// Most recent first; year is null when unknown.
 export const achievements = [
   {
-    text: "Participation in mathematics competitions (2 times national preelection)",
-    icon: "default_achievement.png",
+    year: "2025",
+    title: "Summa Cum Laude",
+    event: "Bachelor's degree, also awarded the Scientific Merit Award",
   },
   {
-    text: "10th place in ICPC-2021 Caribbean Finals",
-    icon: "icpc_logo.png",
+    year: "2023",
+    title: "Silver medal",
+    event: "ICPC Caribbean Finals",
   },
   {
-    text: "12th place in ICPC-2022 Caribbean Finals",
-    icon: "icpc_logo.png",
+    year: "2022",
+    title: "12th place",
+    event: "ICPC Caribbean Finals",
   },
   {
-    text: "Silver Medal in ICPC-2023 Caribbean Finals",
-    icon: "icpc_logo.png",
+    year: "2021",
+    title: "10th place",
+    event: "ICPC Caribbean Finals",
   },
   {
-    text: "Summa Cum Laude and Scientific Merit Award (Bachelor's Degree)",
-    icon: "gold_title.webp",
+    year: null,
+    title: "National preselection, twice",
+    event: "Mathematics competitions",
   },
 ];

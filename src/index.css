@@ -3,5 +3,51 @@
 @tailwind utilities;
 
 html, body {
-  @apply bg-gray-900;
+  @apply bg-ink;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Keep section titles clear of the sticky navbar (h-16). */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* One visible focus style for keyboard users across links and buttons. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid theme("colors.gold.DEFAULT");
+  outline-offset: 3px;
+  border-radius: 0.25rem;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Hero entrance: the only non-interactive motion on the page. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
 }
