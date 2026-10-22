@@ -106,11 +106,19 @@ export const experience = [
     roles: [
       {
         title: "Senior Software Engineer, Mobile & Web",
-        dates: ["09/2025", "Present"],
+        dates: ["06/2026", "Present"],
         location: "Mexico City, Mexico",
         description:
-          "I build scalable mobile and web interfaces with Flutter, Dart and modern web frameworks, delivering core features end to end, from UI implementation to state management and performance. I use AI agents and AI-driven workflows to speed up development and refactoring while keeping code quality and testability high.",
-        skills: ["Dart", "Flutter", "GetX", "AI-assisted development"],
+          "I build scalable mobile and web interfaces with Flutter, Dart and modern web frameworks, delivering core features end to end, from UI implementation to state management and performance. I build web apps with Next.js following a Backend for Frontend (BFF) architecture and integrate them into the mobile apps through a native shell. I use AI agents and AI-driven workflows to speed up development and refactoring while keeping code quality and testability high.",
+        skills: ["Dart", "Flutter", "GetX", "Next.js", "BFF", "AI-assisted development"],
+      },
+      {
+        title: "Mobile Developer",
+        dates: ["09/2025", "05/2026"],
+        location: "Mexico City, Mexico",
+        description:
+          "I built features for the biZne mobile app with Flutter and Dart, from UI implementation to state management with GetX.",
+        skills: ["Dart", "Flutter", "GetX"],
       },
     ],
   },
