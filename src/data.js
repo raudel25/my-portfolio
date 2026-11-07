@@ -1,4 +1,7 @@
-export const cvLink = "https://raudel25.github.io/my-cv/document.pdf";
+export const cvLinks = [
+  { label: "CV (EN)", url: "https://raudel25.github.io/my-cv/document.pdf" },
+  { label: "CV (ES)", url: "https://raudel25.github.io/my-cv/document-es.pdf" },
+];
 
 export const email = "raudel.gmolina@gmail.com";
 
@@ -26,6 +29,13 @@ export const socials = [
 ];
 
 export const projects = [
+  {
+    title: "Undergraduate Thesis",
+    stack: ["Formal languages", "Complexity theory", "SAT"],
+    description:
+      "An approximation to the language of all satisfiable Boolean formulas. Links SAT with formal language theory and shows that Range Concatenation Grammars capture all NP problems.",
+    image: "projects/thesis.webp",
+  },
   {
     title: "Travel Agency",
     stack: ["React", "Antd", ".NET", "MySQL", "OData"],
@@ -64,7 +74,7 @@ export const projects = [
   },
   {
     title: "Teslo Shop",
-    stack: ["React", "Next", "Tailwind CSS", "PostgreSQL"],
+    stack: ["React", "Next.js", "Tailwind CSS", "PostgreSQL"],
     description: "Clothing e-commerce store built with Next.js.",
     image: "projects/teslo-shop.webp",
     sourceUrl: "https://github.com/raudel25/teslo-shop",
@@ -107,7 +117,7 @@ export const experience = [
       {
         title: "Senior Software Engineer, Mobile & Web",
         dates: ["06/2026", "Present"],
-        location: "Mexico City, Mexico",
+        location: "Mexico City, Mexico (Remote)",
         description:
           "I build scalable mobile and web interfaces with Flutter, Dart and modern web frameworks, delivering core features end to end, from UI implementation to state management and performance. I build web apps with Next.js following a Backend for Frontend (BFF) architecture and integrate them into the mobile apps through a native shell. I use AI agents and AI-driven workflows to speed up development and refactoring while keeping code quality and testability high.",
         skills: ["Dart", "Flutter", "GetX", "Next.js", "BFF", "AI-assisted development"],
@@ -115,7 +125,7 @@ export const experience = [
       {
         title: "Mobile Developer",
         dates: ["09/2025", "05/2026"],
-        location: "Mexico City, Mexico",
+        location: "Mexico City, Mexico (Remote)",
         description:
           "I built features for the biZne mobile app with Flutter and Dart, from UI implementation to state management with GetX.",
         skills: ["Dart", "Flutter", "GetX"],
@@ -150,18 +160,18 @@ export const experience = [
       {
         title: "Full Stack Developer",
         dates: ["09/2023", "09/2025"],
-        location: "Madrid, Spain",
+        location: "Madrid, Spain (Remote)",
         description:
-          "Full stack development with React and Next on the client, .NET and PostgreSQL on the server, and web scraping with Playwright and Nodriver.",
+          "I helped build the company platform from the ground up, modeling the domain and structuring the website. I designed an N-layer architecture with the CQRS pattern and automated code generation for entity models, designed the PostgreSQL data model and built the React UI with Antd. I also built LinkedIn scrapers and bots that automate interaction with the website.",
         skills: [
           "TypeScript",
           "React",
           "Antd",
-          "Next",
+          "Next.js",
           "C#",
-          ".Net",
+          ".NET",
           "PostgreSQL",
-          "Odata",
+          "OData",
           "Playwright",
           "Nodriver",
           "Web Scraping",
@@ -176,8 +186,9 @@ export const experience = [
       {
         title: "Mobile Developer",
         dates: ["02/2024", "12/2024"],
-        location: "Mexico City, Mexico",
-        description: "Mobile app development with Flutter.",
+        location: "Mexico City, Mexico (Remote)",
+        description:
+          "I built hybrid Android and iOS apps from scratch and integrated them with REST APIs, shipping MVPs in short timeframes. I implemented push notifications, location, Google Maps, camera, QR scanning and local controllers for the Android client of the collection machine, applying Clean Architecture, design patterns and SOLID principles. Apps: user, collector and machine apps for the Loop project, and a delivery app for the El Navegante project.",
         skills: ["Dart", "Flutter", "GetX"],
       },
     ],
@@ -229,7 +240,7 @@ export const skillGroups = [
     name: "Frontend and mobile",
     skills: [
       { text: "React", icon: icon("react") },
-      { text: "Next", icon: icon("next") },
+      { text: "Next.js", icon: icon("next") },
       { text: "Redux", icon: icon("redux") },
       { text: "Flutter", icon: icon("flutter") },
       { text: "Tailwind CSS", icon: icon("tailwind") },
@@ -291,7 +302,7 @@ export const achievements = [
   },
   {
     year: null,
-    title: "National preselection, twice",
-    event: "Mathematics competitions",
+    title: "National pre-selection team (2 years)",
+    event: "Mathematical Olympiad",
   },
 ];

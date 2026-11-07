@@ -1,5 +1,5 @@
 import React from "react";
-import { cvLink, socials } from "../data";
+import { cvLinks, socials } from "../data";
 import SocialIcon from "./SocialIcon";
 
 export default function About() {
@@ -34,14 +34,17 @@ export default function About() {
             >
               Contact me
             </a>
-            <a
-              href={cvLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex text-fg bg-surface py-2 px-6 rounded hover:bg-line text-lg"
-            >
-              View CV
-            </a>
+            {cvLinks.map((cv) => (
+              <a
+                key={cv.url}
+                href={cv.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-fg bg-surface py-2 px-6 rounded hover:bg-line text-lg"
+              >
+                {cv.label}
+              </a>
+            ))}
             <div className="flex items-center gap-1 -ml-2 sm:ml-2">
               {socials.map((social) => (
                 <a
